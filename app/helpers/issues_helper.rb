@@ -202,10 +202,10 @@ module IssuesHelper
   def issue_estimated_hours_details(issue)
     if issue.total_estimated_hours.present?
       if issue.total_estimated_hours == issue.estimated_hours
-        l_hours_short(issue.estimated_hours)
+        l_days(issue.estimated_hours)
       else
-        s = issue.estimated_hours.present? ? l_hours_short(issue.estimated_hours) : ""
-        s += " (#{l(:label_total)}: #{l_hours_short(issue.total_estimated_hours)})"
+        s = issue.estimated_hours.present? ? l_days(issue.estimated_hours) : ""
+        s << " (#{l(:label_total)}: #{l_days(issue.total_estimated_hours)})"
         s.html_safe
       end
     end
@@ -216,10 +216,10 @@ module IssuesHelper
       path = project_time_entries_path(issue.project, :issue_id => "~#{issue.id}")
 
       if issue.total_spent_hours == issue.spent_hours
-        link_to(l_hours_short(issue.spent_hours), path)
+        link_to(l_days(issue.spent_hours), path)
       else
-        s = issue.spent_hours > 0 ? l_hours_short(issue.spent_hours) : ""
-        s += " (#{l(:label_total)}: #{link_to l_hours_short(issue.total_spent_hours), path})"
+        s = issue.spent_hours > 0 ? l_days(issue.spent_hours) : ""
+        s << " (#{l(:label_total)}: #{link_to l_days(issue.total_spent_hours), path})"
         s.html_safe
       end
     end
@@ -230,6 +230,11 @@ module IssuesHelper
     s = format_date(issue.due_date)
     s += " (#{due_date_distance_in_words(issue.due_date)})" unless issue.closed?
     s
+  end
+
+  def l_days(days)
+    days = days.to_f
+    l((days < 2.0 ? :label_f_hour : :label_f_hour_plural), :value => format_hours(days))
   end
 
   # Returns a link for adding a new subtask to the given issue
