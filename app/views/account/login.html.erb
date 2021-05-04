@@ -4,8 +4,8 @@
   <%= form_tag(signin_path, onsubmit: 'return keepAnchorOnSignIn(this);') do %>
   <%= back_url_hidden_field_tag %>
 
-  <a href="/auth/saml">
-    <img class="mslogin" src="../themes/zenmine/customize/ms-symbollockup_signin_dark.svg" alt="ms_logo">
+  <a class="mslogin" href="/auth/saml">
+    <img src="../themes/zenmine/customize/ms-symbollockup_signin_dark.svg" alt="ms_logo">
   </a>
 
   <label for="username"><%=l(:field_login)%></label>
