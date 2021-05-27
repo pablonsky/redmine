@@ -55,10 +55,10 @@ fr:
         other: "%{count} minutes"
       about_x_hours:
         one:   "environ une heure"
-        other: "environ %{count} heures"
+        other: "environ %{count} heures"
       x_hours:
         one:   "une heure"
-        other: "%{count} heures"
+        other: "%{count} heures"
       x_days:
         one:   "un jour"
         other: "%{count} jours"
@@ -81,7 +81,7 @@ fr:
       year:   "Année"
       month:  "Mois"
       day:    "Jour"
-      hour:   "Heure"
+      hour:   "jour"
       minute: "Minute"
       second: "Seconde"
 
@@ -330,7 +330,7 @@ fr:
   field_url: URL
   field_start_page: Page de démarrage
   field_subproject: Sous-projet
-  field_hours: Heures
+  field_hours: jours
   field_activity: Activité
   field_spent_on: Date
   field_identifier: Identifiant
@@ -411,8 +411,8 @@ fr:
   setting_commit_fix_keywords: Mots-clés de résolution
   setting_autologin: Durée maximale de connexion automatique
   setting_date_format: Format de date
-  setting_time_format: Format d'heure
-  setting_timespan_format: Format des temps en heures
+  setting_time_format: Format d'jour
+  setting_timespan_format: Format des temps en jours
   setting_cross_project_issue_relations: Autoriser les relations entre demandes de différents projets
   setting_cross_project_subtasks: Autoriser les sous-tâches dans des projets différents
   setting_issue_list_default_columns: Colonnes affichées par défaut sur la liste des demandes
@@ -811,8 +811,8 @@ fr:
   label_spent_time: Temps passé
   label_total_spent_time: Temps passé total
   label_overall_spent_time: Temps passé global
-  label_f_hour: "%{value} heure"
-  label_f_hour_plural: "%{value} heures"
+  label_f_hour: "%{value} jour"
+  label_f_hour_plural: "%{value} jours"
   label_f_hour_short: "%{value} h"
   label_time_tracking: Suivi du temps
   label_change_plural: Changements
@@ -1142,10 +1142,10 @@ fr:
   text_plugin_assets_writable: Répertoire public des plugins accessible en écriture
   text_rmagick_available: Bibliothèque RMagick présente (optionnelle)
   text_convert_available: Binaire convert de ImageMagick présent (optionel)
-  text_destroy_time_entries_question: "%{hours} heures ont été enregistrées sur les demandes à supprimer. Que voulez-vous faire ?"
-  text_destroy_time_entries: Supprimer les heures
-  text_assign_time_entries_to_project: Reporter les heures sur le projet
-  text_reassign_time_entries: 'Reporter les heures sur cette demande:'
+  text_destroy_time_entries_question: "%{hours} jours ont été enregistrées sur les demandes à supprimer. Que voulez-vous faire ?"
+  text_destroy_time_entries: Supprimer les jours
+  text_assign_time_entries_to_project: Reporter les jours sur le projet
+  text_reassign_time_entries: 'Reporter les jours sur cette demande:'
   text_user_wrote: "%{value} a écrit :"
   text_enumeration_destroy_question: "La valeur « %{name} » est affectée à %{count} objet(s)."
   text_enumeration_category_reassign_to: 'Réaffecter les objets à cette valeur:'
