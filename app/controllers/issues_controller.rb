@@ -344,7 +344,7 @@ class IssuesController < ApplicationController
           redirect_to project_issues_path(saved_issues.map(&:project).first)
         end
       else
-        redirect_back_or_default _project_issues_path(@project)
+        redirect_back_or_default _project_issues_path(@project), :referer => true
       end
     else
       @saved_issues = @issues

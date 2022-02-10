@@ -410,12 +410,15 @@ class ApplicationController < ActionController::Base
   helper_method :back_url
 
   def redirect_back_or_default(default, options={})
-    if back_url = validate_back_url(cookies[:back_url].to_s)
+    if back_url = validate_back_url(params[:back_url].to_s)
       redirect_to(back_url)
-      cookies.delete :back_url
       return
     elsif options[:referer]
       redirect_to_referer_or default
+      return
+    elsif back_url = validate_back_url(cookies[:back_url].to_s)
+      redirect_to(back_url)
+      cookies.delete :back_url
       return
     end
     redirect_to default
