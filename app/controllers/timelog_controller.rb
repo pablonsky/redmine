@@ -92,7 +92,6 @@ class TimelogController < ApplicationController
   def new
     @time_entry ||= TimeEntry.new(:project => @project, :issue => @issue, :user => User.current, :spent_on => User.current.today)
     @time_entry.safe_attributes = params[:time_entry]
-    cookies[:back_url] = issue_path(@time_entry.issue_id)
   end
 
   def create

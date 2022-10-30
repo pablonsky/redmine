@@ -223,12 +223,10 @@ class ApplicationController < ActionController::Base
           if request.xhr?
             head :unauthorized
           else
-            cookies[:back_url] = url
             redirect_to signin_path(:back_url => url)
           end
         }
         format.any(:atom, :pdf, :csv) {
-          cookies[:back_url] = url
           redirect_to signin_path(:back_url => url)
         }
         format.xml  { head :unauthorized, 'WWW-Authenticate' => 'Basic realm="Redmine API"' }
@@ -396,7 +394,7 @@ class ApplicationController < ActionController::Base
   end
 
   def back_url
-    url = cookies[:back_url]
+    url = params[:back_url]
     if url.nil? && referer = request.env['HTTP_REFERER']
       url = CGI.unescape(referer.to_s)
       # URLs that contains the utf8=[checkmark] parameter added by Rails are
@@ -415,10 +413,6 @@ class ApplicationController < ActionController::Base
       return
     elsif options[:referer]
       redirect_to_referer_or default
-      return
-    elsif back_url = validate_back_url(cookies[:back_url].to_s)
-      redirect_to(back_url)
-      cookies.delete :back_url
       return
     end
     redirect_to default
